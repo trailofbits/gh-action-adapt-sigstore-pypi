@@ -13,6 +13,7 @@ runs:
   using: 'docker'
   image: 'docker://ghcr.io/astral-sh/uv:0.5-python3.13-bookworm-slim'
   args:
+    - uv
     - run
     - --prerelease=allow
     - convert-attestations.py
