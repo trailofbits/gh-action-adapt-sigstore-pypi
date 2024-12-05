@@ -2,7 +2,9 @@ name: 'adapt-sigstore-pypi'
 description: 'Convert Sigstore bundles to PyPI attestations'
 inputs:
   bundles:
-    description: 'Sigstore bundles to convert. Accepts only .jsonl files. May contain a glob pattern or list of paths.'
+    description: >-
+      Sigstore bundles to convert. Accepts only .jsonl files.
+      May contain a glob pattern or list of paths.
     required: true
 outputs:
   output-dir:
