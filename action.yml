@@ -25,6 +25,6 @@ runs:
     - name: Convert attestations
       shell: bash
       run: |
-        uv run --prerelease=allow ${{ github.action_path }}/convert-attestations.py \
+        uv run --project=${{ github.action_path }}/convert-attestations convert-attestations \
           ${{ inputs.output-dir != '' && format('--output-dir {0}', inputs.output-dir) || '' }} \
           ${{ inputs.bundles }}
