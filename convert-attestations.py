@@ -99,7 +99,7 @@ def main() -> None:
             f.write(f"output-dir={output_dir}")
 
     _logger.info(
-        f"OK: {len(attestations)} attestations converted and written to {output_dir}"
+        f"OK: {len(attestations)} attestations converted and written to {output_dir.absolute()}"
     )
 
 
