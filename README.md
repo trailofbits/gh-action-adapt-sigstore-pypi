@@ -13,6 +13,12 @@ inputs:
       Sigstore bundles to convert. Accepts only .jsonl files.
       May contain a glob pattern or list of paths.
     required: true
+  output-dir:
+    description: >-
+      Directory where to store the converted attestations.
+      Optional, if omitted a new temporary directory will be
+      created and returned as an output.
+    required: false
 ```
 
 ## Outputs

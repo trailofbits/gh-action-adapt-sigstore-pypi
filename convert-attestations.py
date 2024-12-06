@@ -60,6 +60,7 @@ def main() -> None:
     parser.add_argument(
         "attestation_files", nargs="+", type=Path, help="Attestation files to convert"
     )
+    parser.add_argument("--output-dir", type=Path, help="Attestation files to convert")
 
     args = parser.parse_args()
 
@@ -86,7 +87,7 @@ def main() -> None:
                 filename, attestation = _convert_bundle(f, line)
                 attestations[filename] = attestation
 
-    output_dir = Path(mkdtemp())
+    output_dir = Path(mkdtemp()) if args.output_dir is None else Path(args.output_dir)
     for filename, attestation in attestations.items():
         output_path = output_dir / filename
         output_path.write_text(attestation.model_dump_json(), encoding="utf-8")

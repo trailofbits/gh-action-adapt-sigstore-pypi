@@ -6,6 +6,12 @@ inputs:
       Sigstore bundles to convert. Accepts only .jsonl files.
       May contain a glob pattern or list of paths.
     required: true
+  output-dir:
+    description: >-
+      Directory where to store the converted attestations.
+      Optional, if omitted a new temporary directory will be
+      created and returned as an output.
+    required: false
 outputs:
   output-dir:
     description: 'Directory containing the converted PyPI attestations'
@@ -18,4 +24,7 @@ runs:
         version: "0.5.6"
     - name: Convert attestations
       shell: bash
-      run: uv run --prerelease=allow ${{ github.action_path }}/convert-attestations.py ${{ inputs.bundles }}
+      run: |
+        uv run --prerelease=allow ${{ github.action_path }}/convert-attestations.py \
+          ${{ inputs.output-dir != '' && format('--output-dir {0}', inputs.output-dir) || '' }} \
+          ${{ inputs.bundles }}
