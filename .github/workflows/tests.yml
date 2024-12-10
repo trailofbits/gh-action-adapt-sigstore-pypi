@@ -18,6 +18,8 @@ jobs:
         working-directory: ./convert-attestations
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@v4
