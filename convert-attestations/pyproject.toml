@@ -41,10 +41,6 @@ Documentation = "https://trailofbits.github.io/convert-attestations/"
 Issues = "https://github.com/trailofbits/convert-attestations/issues"
 Source = "https://github.com/trailofbits/convert-attestations"
 
-[tool.coverage.run]
-# don't attempt code coverage for the CLI entrypoints
-omit = ["src/convert_attestations/_cli.py"]
-
 [tool.mypy]
 mypy_path = "src"
 packages = "convert_attestations"
