@@ -1,0 +1,30 @@
+name: Integration tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-github-action:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # to sign the provenance
+      attestations: write # to persist the attestation files
+    steps:
+      - name: Create artifacts
+        run: mkdir dist && echo "a" > dist/artifact1.txt && echo "b" > dist/artifact2.txt
+      - name: Create provenances
+        id: create-provenances
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: 'dist/*'
+      - name: Convert provenances
+        uses: trailofbits/gh-action-adapt-sigstore-pypi@main
+        with:
+          bundles: ${{ steps.create-provenances.outputs.bundle-path }}
+          output-dir: dist/
+      - name: Check action result
+        run: ls dist
+
