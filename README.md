@@ -34,7 +34,14 @@ inputs:
 ## Example usage
 
 ```yml
-uses: trailofbits/gh-action-adapt-sigstore-pypi@v1
-with:
-  bundles: '<PATH TO JSONL FILE>'
+- name: Create provenances
+  id: create-provenances
+  uses: actions/attest-build-provenance@v1
+  with:
+    subject-path: 'dist/*'
+- name: Convert provenances
+  uses: trailofbits/gh-action-adapt-sigstore-pypi@main
+  with:
+    bundles: ${{ steps.create-provenances.outputs.bundle-path }}
+    output-dir: dist/
 ```
