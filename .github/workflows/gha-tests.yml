@@ -13,6 +13,10 @@ jobs:
       id-token: write # to sign the provenance
       attestations: write # to persist the attestation files
     steps:
+      - name: Checkout action repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Create artifacts
         run: mkdir dist && echo "a" > dist/artifact1.txt && echo "b" > dist/artifact2.txt
       - name: Create provenances
@@ -21,7 +25,7 @@ jobs:
         with:
           subject-path: 'dist/*'
       - name: Convert provenances
-        uses: trailofbits/gh-action-adapt-sigstore-pypi@main
+        uses: ./
         with:
           bundles: ${{ steps.create-provenances.outputs.bundle-path }}
           output-dir: dist/
