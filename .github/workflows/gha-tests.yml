@@ -29,6 +29,12 @@ jobs:
         with:
           bundles: ${{ steps.create-provenances.outputs.bundle-path }}
           output-dir: dist/
-      - name: Check action result
+      - name: List dist/ contents
         run: ls dist
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install pypi-attestations tool
+        run: uv tool install --prerelease=allow pypi-attestations==0.0.21
+      - name: Check provenances
+        run: pypi-attestations verify attestation --identity "aa" dist/artifact1.txt dist/artifact2.txt
 
