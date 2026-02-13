@@ -17,12 +17,12 @@ jobs:
       run:
         working-directory: ./convert-attestations
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
           cache-dependency-glob: convert-attestations/pyproject.toml
