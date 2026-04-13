@@ -1,8 +1,8 @@
 version: 2
 
 updates:
-  - package-ecosystem: pip
-    directory: /
+  - package-ecosystem: uv
+    directory: /convert-attestations
     groups:
       python:
         patterns:
