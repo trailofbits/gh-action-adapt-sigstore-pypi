@@ -10,7 +10,7 @@ from tempfile import mkdtemp
 from typing import NoReturn
 
 from pypi_attestations import Attestation, AttestationError
-from sigstore.models import Bundle
+from sigstore.models import Bundle, InvalidBundle
 
 logging.basicConfig(format="%(message)s", datefmt="[%X]", handlers=[logging.StreamHandler()])
 _logger = logging.getLogger(__name__)
@@ -27,7 +27,7 @@ def _convert_bundle(filename: Path, bundle_txt: str) -> tuple[str, Attestation]:
     try:
         bundle = Bundle.from_json(bundle_txt)
         attestation = Attestation.from_bundle(bundle)
-    except JSONDecodeError as e:
+    except (JSONDecodeError, InvalidBundle) as e:
         _die(f"Error while parsing the bundle: {e}")
     except AttestationError as e:
         _die(f"Error while converting the bundle to a PyPI attestation: {e}")
