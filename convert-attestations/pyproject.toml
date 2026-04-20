@@ -24,7 +24,7 @@ lint = [
     # NOTE: ruff is under active development, so we pin conservatively here
     # and let Dependabot periodically perform this update.
     "ruff~=0.15.10",
-    "mypy>=1.20.0",
+    "mypy>=1.20.1",
     "types-html5lib",
     "types-requests",
     "types-toml",
