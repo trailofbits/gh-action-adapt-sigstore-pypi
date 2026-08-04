@@ -226,7 +226,7 @@ requires-dist = [
     { name = "interrogate", marker = "extra == 'lint'" },
     { name = "mypy", marker = "extra == 'lint'", specifier = ">=2.3.0" },
     { name = "pretend", marker = "extra == 'test'" },
-    { name = "pypi-attestations", specifier = "==0.0.29" },
+    { name = "pypi-attestations", specifier = "==0.0.30" },
     { name = "pytest", marker = "extra == 'test'" },
     { name = "pytest-cov", marker = "extra == 'test'" },
     { name = "ruff", marker = "extra == 'lint'", specifier = "~=0.16.0" },
@@ -829,7 +829,7 @@ wheels = [
 
 [[package]]
 name = "pypi-attestations"
-version = "0.0.29"
+version = "0.0.30"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cryptography" },
@@ -841,9 +841,9 @@ dependencies = [
     { name = "sigstore" },
     { name = "sigstore-models" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8b/a9/20169d7df89a79bfb00045c7d42d81ccc612008474306e1858984990e165/pypi_attestations-0.0.29.tar.gz", hash = "sha256:2daf3ec46ff4c7123184ec892852b4d4599b78128f01f742a44406a73200c5df", size = 128954, upload-time = "2025-12-11T13:24:21.425Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/97/1e/eb8a0233cdcaf01acb18076ac8b8a057714177b3717baf26b78a11b8d929/pypi_attestations-0.0.30.tar.gz", hash = "sha256:14ff13c76bbef02a483c2b77532da02bfd746b5141b881f355e06b9807434423", size = 139108, upload-time = "2026-07-28T14:08:35.011Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c8/4c/a008365b5bdeab52f023945af9aff2baf7f99de5784adca314b55872d6be/pypi_attestations-0.0.29-py3-none-any.whl", hash = "sha256:278a28d741b57d62973c00d453ec9b9bb30456464d69296c6780474cd0bf098e", size = 21922, upload-time = "2025-12-11T13:24:19.943Z" },
+    { url = "https://files.pythonhosted.org/packages/5f/24/e59078318b5e2bca59be5a21957d70e082e6eb4f478adffe373f3b74daf4/pypi_attestations-0.0.30-py3-none-any.whl", hash = "sha256:b3a9c53f6cb89e5e7b5b70e6cfca97cfc66008c1ed54087355e06e40071cef21", size = 23015, upload-time = "2026-07-28T14:08:33.453Z" },
 ]
 
 [[package]]
