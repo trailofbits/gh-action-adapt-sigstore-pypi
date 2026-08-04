@@ -23,7 +23,7 @@ test = ["pytest", "pytest-cov", "pretend", "coverage[toml]"]
 lint = [
     # NOTE: ruff is under active development, so we pin conservatively here
     # and let Dependabot periodically perform this update.
-    "ruff~=0.15.22",
+    "ruff~=0.16.0",
     "mypy>=2.3.0",
     "types-html5lib",
     "types-requests",
@@ -69,7 +69,7 @@ select = ["ALL"]
 # D203 and D213 are incompatible with D211 and D212 respectively.
 # COM812 and ISC001 can cause conflicts when using ruff as a formatter.
 # See https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules.
-ignore = ["D203", "D213", "COM812", "ISC001"]
+ignore = ["D203", "D213", "COM812", "ISC001", "CPY001"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/convert_attestations/_cli.py" = [
